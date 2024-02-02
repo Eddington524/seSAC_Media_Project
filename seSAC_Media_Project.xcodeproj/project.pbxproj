@@ -31,6 +31,8 @@
 		DC2825742B6CF0C500073E3C /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825732B6CF0C500073E3C /* ProfileImageView.swift */; };
 		DC2825762B6CF5A200073E3C /* TvCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825752B6CF5A200073E3C /* TvCollectionViewCell.swift */; };
 		DC2825782B6CF70A00073E3C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */; };
+		DC28257A2B6CFC7200073E3C /* TvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */; };
+		DC28257C2B6CFCED00073E3C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +58,8 @@
 		DC2825732B6CF0C500073E3C /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
 		DC2825752B6CF5A200073E3C /* TvCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTableViewCell.swift; sourceTree = "<group>"; };
+		DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,7 @@
 				DC28254F2B6CED3300073E3C /* BaseViewController.swift */,
 				DC2825512B6CED4700073E3C /* BaseView.swift */,
 				DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */,
+				DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 			children = (
 				DC2825362B6BA27B00073E3C /* HomeViewController.swift */,
 				DC2825752B6CF5A200073E3C /* TvCollectionViewCell.swift */,
+				DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */,
 			);
 			path = TV;
 			sourceTree = "<group>";
@@ -244,6 +250,7 @@
 				DC2825372B6BA27B00073E3C /* HomeViewController.swift in Sources */,
 				DC28256E2B6CF03400073E3C /* DarkgrayLabel.swift in Sources */,
 				DC28255C2B6CEF2400073E3C /* APIkey.swift in Sources */,
+				DC28257C2B6CFCED00073E3C /* BaseTableViewCell.swift in Sources */,
 				DC2825742B6CF0C500073E3C /* ProfileImageView.swift in Sources */,
 				DC2825502B6CED3300073E3C /* BaseViewController.swift in Sources */,
 				DC2825692B6CEF9700073E3C /* APImanager.swift in Sources */,
@@ -255,6 +262,7 @@
 				DC2825762B6CF5A200073E3C /* TvCollectionViewCell.swift in Sources */,
 				DC2825542B6CED7500073E3C /* ReusableViewProtocol.swift in Sources */,
 				DC28256C2B6CF01100073E3C /* BlackTitleLabel.swift in Sources */,
+				DC28257A2B6CFC7200073E3C /* TvTableViewCell.swift in Sources */,
 				DC2825722B6CF06800073E3C /* LineTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
