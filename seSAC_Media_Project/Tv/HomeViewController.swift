@@ -40,7 +40,6 @@ class HomeViewController: BaseViewController {
         }
         
         group.notify(queue: .main) {
-//            self.tvCollectionView.reloadData()
             self.homeTableView.reloadData()
         }
         
