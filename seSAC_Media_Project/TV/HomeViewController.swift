@@ -15,9 +15,6 @@ class HomeViewController: BaseViewController {
     
     let homeTableView  = UITableView()
     
-//    let tvCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionView())
-    
-//    var list: [TV] = []
     var tvList:[[TV]] = [[],[],[]]
     
     override func viewDidLoad() {
@@ -52,15 +49,9 @@ class HomeViewController: BaseViewController {
 
     override func configureHierarchy() {
         view.addSubview(homeTableView)
-//        view.addSubview(tvCollectionView)
     }
     
     override func configureConstraints() {
-//        tvCollectionView.snp.makeConstraints { make in
-//            make.top.equalTo(view.safeAreaLayoutGuide)
-//            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(12)
-//            make.height.equalTo(200)
-//        }
         
         homeTableView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
@@ -69,11 +60,6 @@ class HomeViewController: BaseViewController {
     }
     
     override func configureView() {
-//        tvCollectionView.delegate = self
-//        tvCollectionView.dataSource = self
-        
-//        tvCollectionView.register(TvCollectionViewCell.self, forCellWithReuseIdentifier: TvCollectionViewCell.identifier)
-        
         homeTableView.delegate = self
         homeTableView.dataSource = self
         homeTableView.rowHeight = 280
@@ -109,7 +95,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TvCollectionViewCell.identifier, for: indexPath) as! TvCollectionViewCell
         
-//        let item = list[indexPath.row]
         let item = tvList[collectionView.tag][indexPath.row]
         
         if let url = URL(string: "https://image.tmdb.org/t/p/w500/\( item.poster ?? "")") {
@@ -134,7 +119,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: TvTableViewCell.identifier, for: indexPath) as! TvTableViewCell
         
-        // 아하! cell 안에서도 연결 시켜줘야지!
         cell.innerCollectionView.delegate = self
         cell.innerCollectionView.dataSource = self
         cell.innerCollectionView.register(TvCollectionViewCell.self, forCellWithReuseIdentifier: TvCollectionViewCell.identifier)
