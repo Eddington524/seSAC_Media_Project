@@ -33,6 +33,9 @@
 		DC2825782B6CF70A00073E3C /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */; };
 		DC28257A2B6CFC7200073E3C /* TvTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */; };
 		DC28257C2B6CFCED00073E3C /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */; };
+		DC28257F2B6D08B800073E3C /* TvInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */; };
+		DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */; };
+		DC2825832B6D4DCC00073E3C /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +63,9 @@
 		DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvTableViewCell.swift; sourceTree = "<group>"; };
 		DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvInfoViewController.swift; sourceTree = "<group>"; };
+		DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,9 +103,10 @@
 		DC2825312B6BA27B00073E3C /* seSAC_Media_Project */ = {
 			isa = PBXGroup;
 			children = (
+				DC28257D2B6D071B00073E3C /* Tvinfo */,
 				DC28256A2B6CEFD200073E3C /* CustomView */,
 				DC2825562B6CEE8600073E3C /* Network */,
-				DC2825552B6CED9C00073E3C /* TV */,
+				DC2825552B6CED9C00073E3C /* Tv */,
 				DC2825472B6BA31900073E3C /* Protocol */,
 				DC2825462B6BA30C00073E3C /* Base */,
 				DC2825322B6BA27B00073E3C /* AppDelegate.swift */,
@@ -131,14 +138,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
-		DC2825552B6CED9C00073E3C /* TV */ = {
+		DC2825552B6CED9C00073E3C /* Tv */ = {
 			isa = PBXGroup;
 			children = (
 				DC2825362B6BA27B00073E3C /* HomeViewController.swift */,
 				DC2825752B6CF5A200073E3C /* TvCollectionViewCell.swift */,
 				DC2825792B6CFC7200073E3C /* TvTableViewCell.swift */,
 			);
-			path = TV;
+			path = Tv;
 			sourceTree = "<group>";
 		};
 		DC2825562B6CEE8600073E3C /* Network */ = {
@@ -161,6 +168,16 @@
 				DC2825732B6CF0C500073E3C /* ProfileImageView.swift */,
 			);
 			path = CustomView;
+			sourceTree = "<group>";
+		};
+		DC28257D2B6D071B00073E3C /* Tvinfo */ = {
+			isa = PBXGroup;
+			children = (
+				DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */,
+				DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */,
+				DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */,
+			);
+			path = Tvinfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -247,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC2825582B6CEEB200073E3C /* TvModel.swift in Sources */,
+				DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */,
 				DC2825372B6BA27B00073E3C /* HomeViewController.swift in Sources */,
 				DC28256E2B6CF03400073E3C /* DarkgrayLabel.swift in Sources */,
 				DC28255C2B6CEF2400073E3C /* APIkey.swift in Sources */,
@@ -256,6 +274,7 @@
 				DC2825692B6CEF9700073E3C /* APImanager.swift in Sources */,
 				DC2825522B6CED4700073E3C /* BaseView.swift in Sources */,
 				DC2825702B6CF05000073E3C /* PosterImageView.swift in Sources */,
+				DC2825832B6D4DCC00073E3C /* InnerCollectionViewCell.swift in Sources */,
 				DC2825782B6CF70A00073E3C /* BaseCollectionViewCell.swift in Sources */,
 				DC2825332B6BA27B00073E3C /* AppDelegate.swift in Sources */,
 				DC2825352B6BA27B00073E3C /* SceneDelegate.swift in Sources */,
@@ -263,6 +282,7 @@
 				DC2825542B6CED7500073E3C /* ReusableViewProtocol.swift in Sources */,
 				DC28256C2B6CF01100073E3C /* BlackTitleLabel.swift in Sources */,
 				DC28257A2B6CFC7200073E3C /* TvTableViewCell.swift in Sources */,
+				DC28257F2B6D08B800073E3C /* TvInfoViewController.swift in Sources */,
 				DC2825722B6CF06800073E3C /* LineTitleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

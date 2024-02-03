@@ -102,10 +102,20 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             print("이미지데이터 오류")
         }
         cell.titleLabel.text = item.name
+        cell.posterImage.tag = item.id
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(tvList[collectionView.tag][indexPath.row].id)
+        let vc = TvInfoViewController()
+        vc.productId = tvList[collectionView.tag][indexPath.row].id
+        
+//        let nav = UINavigationController(rootViewController: self)
+
+//        present(vc, animated: true)
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 
@@ -128,5 +138,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
+        
 }

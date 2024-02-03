@@ -36,13 +36,34 @@ struct SeasonModel: Decodable {
 }
 
 struct Season: Decodable {
-    let air_date: String
+    let air_date: String?
     let episode_count: Int
     let name: String
-    let overview: String
-    let poster_path: String
+    let overview: String?
+    let poster_path: String?
     let season_number: Int
-    let vote_average: Int
+    let vote_average: Double
+    
+    enum CodingKeys: CodingKey {
+        case air_date
+        case episode_count
+        case name
+        case overview
+        case poster_path
+        case season_number
+        case vote_average
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.air_date = try container.decodeIfPresent(String.self, forKey: .air_date) ?? ""
+        self.episode_count = try container.decode(Int.self, forKey: .episode_count)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.overview = try container.decodeIfPresent(String.self, forKey: .overview) ?? ""
+        self.poster_path = try container.decodeIfPresent(String.self, forKey: .poster_path) ?? ""
+        self.season_number = try container.decode(Int.self, forKey: .season_number)
+        self.vote_average = Double(try container.decode(Double.self, forKey: .vote_average))
+    }
 }
 
 
@@ -58,3 +79,4 @@ struct Actor: Decodable {
 struct RoleCharacter: Decodable {
     let character: String
 }
+
