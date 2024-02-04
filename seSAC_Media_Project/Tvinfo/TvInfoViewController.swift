@@ -51,12 +51,31 @@ class TvInfoViewController: BaseViewController {
         
         let group = DispatchGroup()
         
+        
+//        APImanager.shared.fetchTvSeasonInfo(id: productId) { result in
+//
+//            self.seasonList = result.seasons
+//
+//            if let backdrop_path  = result.backdrop_path {
+//                
+//                let url = URL(string: "https://image.tmdb.org/t/p/w500\(backdrop_path)")
+//                
+//                self.backDropImage.kf.setImage(with:url, placeholder: UIImage(systemName: "movieclapper"))
+//                
+//            }
+//
+//            if let overview = result.overview {
+//                self.overview = overview
+//            }else{
+//                self.overview = "줄거리가 미제공된 콘텐츠 입니다"
+//            }
+//            group.leave()
+//        }
         group.enter()
-        APImanager.shared.fetchTvSeasonInfo(id: productId) { result in
+        APImanager.shared.request(type: SeasonModel.self, api: .dramaDetail(id: productId)) { response in
+            self.seasonList = response.seasons
 
-            self.seasonList = result.seasons
-
-            if let backdrop_path  = result.backdrop_path {
+            if let backdrop_path  = response.backdrop_path {
                 
                 let url = URL(string: "https://image.tmdb.org/t/p/w500\(backdrop_path)")
                 
@@ -64,7 +83,7 @@ class TvInfoViewController: BaseViewController {
                 
             }
 
-            if let overview = result.overview {
+            if let overview = response.overview {
                 self.overview = overview
             }else{
                 self.overview = "줄거리가 미제공된 콘텐츠 입니다"
@@ -73,16 +92,16 @@ class TvInfoViewController: BaseViewController {
         }
         
         group.enter()
-        APImanager.shared.fetchTvCastingInfo(id: productId) { actors in
-            self.castList = actors
-    
+        APImanager.shared.request(type: ActorModel.self, api: .casting(id: productId)) { response in
+            self.castList = response.cast
             group.leave()
         }
+        
         infoTitle.text = productName
         
         group.enter()
-        APImanager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { result in
-            self.recommendList = result.results
+        APImanager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { reponse in
+            self.recommendList = reponse.results
 
             group.leave()
         }
@@ -244,9 +263,9 @@ extension TvInfoViewController: UICollectionViewDelegate,UICollectionViewDataSou
         }
 
         else if collectionView.tag == 3{
-            print("recommendList",recommendList)
+            
             let item = recommendList[indexPath.row]
-            print("item",item)
+            
             if let itemPoster = item.poster{
                 let url = URL(string: "https://image.tmdb.org/t/p/w500\(itemPoster)")
                 cell.posterImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "movieclapper"))

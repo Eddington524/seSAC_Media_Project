@@ -11,7 +11,7 @@ import Kingfisher
 
 class HomeViewController: BaseViewController {
 
-    let titleList:[String] = ["뜨거운 핫 트렌드!", "평점 높은 TV!", "이보다 더 유명할 수 없는 프로그램"]
+    let titleList:[String] = ["뜨거운 핫 트렌드!", "평점 높은 드라마!", "이보다 더 유명할 수 없는 작품"]
     
     let homeTableView  = UITableView()
     
@@ -22,20 +22,27 @@ class HomeViewController: BaseViewController {
         
         let group = DispatchGroup()
         
+//        group.enter()
+//        APImanager.shared.fetchTVImages(url: "trending/tv/week") { tvs in
+//            self.tvList[0] = tvs
+//            group.leave()
+//        }
+        
         group.enter()
-        APImanager.shared.fetchTVImages(url: "trending/tv/week") { tvs in
-            self.tvList[0] = tvs
+        APImanager.shared.request(type: DramaModel.self, api: .trending) { reponse in
+            self.tvList[0] = reponse.results
             group.leave()
         }
+        
         group.enter()
-        APImanager.shared.fetchTVImages(url: "tv/top_rated") { tvs in
-            self.tvList[1] = tvs
-//            self.collectionView.reloadData()
+        APImanager.shared.request(type: DramaModel.self, api: .topRated) { reponse in
+            self.tvList[1] = reponse.results
             group.leave()
         }
+    
         group.enter()
-        APImanager.shared.fetchTVImages(url: "tv/popular") { tvs in
-            self.tvList[2] = tvs
+        APImanager.shared.request(type: DramaModel.self, api: .popular) { reponse in
+            self.tvList[2] = reponse.results
             group.leave()
         }
         
@@ -107,7 +114,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(tvList[collectionView.tag][indexPath.row].id)
+
         let vc = TvInfoViewController()
         vc.productId = tvList[collectionView.tag][indexPath.row].id
         vc.productName = tvList[collectionView.tag][indexPath.row].name
