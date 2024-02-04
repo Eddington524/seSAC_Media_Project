@@ -49,6 +49,9 @@ class TvInfoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let group = DispatchGroup()
+        
+        group.enter()
         APImanager.shared.fetchTvSeasonInfo(id: productId) { result in
 
             self.seasonList = result.seasons
@@ -58,26 +61,33 @@ class TvInfoViewController: BaseViewController {
                 let url = URL(string: "https://image.tmdb.org/t/p/w500\(backdrop_path)")
                 
                 self.backDropImage.kf.setImage(with:url, placeholder: UIImage(systemName: "movieclapper"))
+                
             }
-            
+
             if let overview = result.overview {
                 self.overview = overview
             }else{
                 self.overview = "줄거리가 미제공된 콘텐츠 입니다"
             }
-            self.infoTableView.reloadData()
+            group.leave()
         }
         
+        group.enter()
         APImanager.shared.fetchTvCastingInfo(id: productId) { actors in
             self.castList = actors
     
-            self.infoTableView.reloadData()
+            group.leave()
         }
         infoTitle.text = productName
         
+        group.enter()
         APImanager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { result in
             self.recommendList = result.results
 
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
             self.infoTableView.reloadData()
         }
         
