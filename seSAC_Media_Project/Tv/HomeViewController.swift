@@ -15,7 +15,7 @@ class HomeViewController: BaseViewController {
     
     let homeTableView  = UITableView()
     
-    var tvList:[[TV]] = [[],[],[]]
+    var tvList:[[Drama]] = [[],[],[]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +110,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         print(tvList[collectionView.tag][indexPath.row].id)
         let vc = TvInfoViewController()
         vc.productId = tvList[collectionView.tag][indexPath.row].id
+        vc.productName = tvList[collectionView.tag][indexPath.row].name
         
 //        let nav = UINavigationController(rootViewController: self)
 

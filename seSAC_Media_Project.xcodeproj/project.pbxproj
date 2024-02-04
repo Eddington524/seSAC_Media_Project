@@ -16,7 +16,7 @@
 		DC2825502B6CED3300073E3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28254F2B6CED3300073E3C /* BaseViewController.swift */; };
 		DC2825522B6CED4700073E3C /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825512B6CED4700073E3C /* BaseView.swift */; };
 		DC2825542B6CED7500073E3C /* ReusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825532B6CED7500073E3C /* ReusableViewProtocol.swift */; };
-		DC2825582B6CEEB200073E3C /* TvModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825572B6CEEB200073E3C /* TvModel.swift */; };
+		DC2825582B6CEEB200073E3C /* DramaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825572B6CEEB200073E3C /* DramaModel.swift */; };
 		DC28255A2B6CEEF600073E3C /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DC2825592B6CEEF600073E3C /* .gitignore */; };
 		DC28255C2B6CEF2400073E3C /* APIkey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28255B2B6CEF2400073E3C /* APIkey.swift */; };
 		DC28255F2B6CEF5D00073E3C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = DC28255E2B6CEF5D00073E3C /* SnapKit */; };
@@ -36,6 +36,9 @@
 		DC28257F2B6D08B800073E3C /* TvInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */; };
 		DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */; };
 		DC2825832B6D4DCC00073E3C /* InnerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */; };
+		DC2825872B6DD48600073E3C /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825862B6DD48600073E3C /* BaseImageView.swift */; };
+		DC28258B2B6E3C7B00073E3C /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */; };
+		DC28258F2B6F78BB00073E3C /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +53,7 @@
 		DC28254F2B6CED3300073E3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DC2825512B6CED4700073E3C /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		DC2825532B6CED7500073E3C /* ReusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableViewProtocol.swift; sourceTree = "<group>"; };
-		DC2825572B6CEEB200073E3C /* TvModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvModel.swift; sourceTree = "<group>"; };
+		DC2825572B6CEEB200073E3C /* DramaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DramaModel.swift; sourceTree = "<group>"; };
 		DC2825592B6CEEF600073E3C /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DC28255B2B6CEF2400073E3C /* APIkey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkey.swift; sourceTree = "<group>"; };
 		DC2825682B6CEF9700073E3C /* APImanager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APImanager.swift; sourceTree = "<group>"; };
@@ -66,6 +69,9 @@
 		DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TvInfoViewController.swift; sourceTree = "<group>"; };
 		DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC2825862B6DD48600073E3C /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
+		DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
+		DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +132,7 @@
 				DC2825512B6CED4700073E3C /* BaseView.swift */,
 				DC2825772B6CF70A00073E3C /* BaseCollectionViewCell.swift */,
 				DC28257B2B6CFCED00073E3C /* BaseTableViewCell.swift */,
+				DC2825862B6DD48600073E3C /* BaseImageView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -151,9 +158,10 @@
 		DC2825562B6CEE8600073E3C /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DC2825572B6CEEB200073E3C /* TvModel.swift */,
+				DC2825572B6CEEB200073E3C /* DramaModel.swift */,
 				DC28255B2B6CEF2400073E3C /* APIkey.swift */,
 				DC2825682B6CEF9700073E3C /* APImanager.swift */,
+				DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -176,6 +184,7 @@
 				DC28257E2B6D08B800073E3C /* TvInfoViewController.swift */,
 				DC2825802B6D4C6D00073E3C /* InfoTableViewCell.swift */,
 				DC2825822B6D4DCC00073E3C /* InnerCollectionViewCell.swift */,
+				DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */,
 			);
 			path = Tvinfo;
 			sourceTree = "<group>";
@@ -263,7 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC2825582B6CEEB200073E3C /* TvModel.swift in Sources */,
+				DC2825582B6CEEB200073E3C /* DramaModel.swift in Sources */,
 				DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */,
 				DC2825372B6BA27B00073E3C /* HomeViewController.swift in Sources */,
 				DC28256E2B6CF03400073E3C /* DarkgrayLabel.swift in Sources */,
@@ -280,8 +289,11 @@
 				DC2825352B6BA27B00073E3C /* SceneDelegate.swift in Sources */,
 				DC2825762B6CF5A200073E3C /* TvCollectionViewCell.swift in Sources */,
 				DC2825542B6CED7500073E3C /* ReusableViewProtocol.swift in Sources */,
+				DC28258F2B6F78BB00073E3C /* TMDBAPI.swift in Sources */,
 				DC28256C2B6CF01100073E3C /* BlackTitleLabel.swift in Sources */,
+				DC28258B2B6E3C7B00073E3C /* DefaultTableViewCell.swift in Sources */,
 				DC28257A2B6CFC7200073E3C /* TvTableViewCell.swift in Sources */,
+				DC2825872B6DD48600073E3C /* BaseImageView.swift in Sources */,
 				DC28257F2B6D08B800073E3C /* TvInfoViewController.swift in Sources */,
 				DC2825722B6CF06800073E3C /* LineTitleLabel.swift in Sources */,
 			);

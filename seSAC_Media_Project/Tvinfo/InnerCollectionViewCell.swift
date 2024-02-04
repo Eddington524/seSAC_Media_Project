@@ -54,10 +54,6 @@ class InnerCollectionViewCell: BaseCollectionViewCell {
     override func configureView() {
 //        titleLabel.backgroundColor = .blue
         posterImageView.backgroundColor = .systemMint
-//        posterImageView.backgroundColor = .clear
-        
-        titleLabel.text = "테스트 dighhdhgshdgh"
-        episodeCount.text = "000000"
 
     }
     

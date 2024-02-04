@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct TvModel: Decodable {
+struct DramaModel: Decodable {
     let page: Int
-    let results: [TV]
+    let results: [Drama]
 }
 
-struct TV: Decodable {
+struct Drama: Decodable {
     let id: Int
     let name: String
     let original_name: String
@@ -31,8 +31,10 @@ struct TV: Decodable {
 }
 
 struct SeasonModel: Decodable {
+    let backdrop_path: String?
     let seasons: [Season]
     let original_language: String
+    let overview: String?
 }
 
 struct Season: Decodable {
@@ -74,9 +76,9 @@ struct ActorModel: Decodable {
 struct Actor: Decodable {
     let name: String
     let roles: [RoleCharacter]
+    let profile_path: String?
 }
 
 struct RoleCharacter: Decodable {
     let character: String
 }
-

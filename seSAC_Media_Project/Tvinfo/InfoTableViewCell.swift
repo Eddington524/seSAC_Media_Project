@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 
 class InfoTableViewCell: BaseTableViewCell{
     
@@ -14,25 +15,11 @@ class InfoTableViewCell: BaseTableViewCell{
         return title
     }()
     
-    
     let innerCollectionView = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionView())
 
-
+    
 //    let lineupCollectionView = UICollectionView()
 //    let recommendCollectionView = UICollectionView()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        configureHierarchy()
-        configureConstraints()
-        configureView()
-    
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func configureHierarchy() {
         contentView.addSubview(infoTitle)
@@ -45,6 +32,7 @@ class InfoTableViewCell: BaseTableViewCell{
             make.leading.trailing.equalTo(contentView.safeAreaLayoutGuide)
             make.height.equalTo(44)
         }
+        
         innerCollectionView.snp.makeConstraints { make in
             make.top.equalTo(infoTitle.snp.bottom).inset(12)
             make.horizontalEdges.bottom.equalTo(contentView)
