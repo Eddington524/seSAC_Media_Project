@@ -12,6 +12,19 @@ enum apiError: Error {
     case noData
     case invalidResponse
     case invalidData
+    
+    var errorMessage: String {
+        switch self {
+        case .failRequest:
+            "네트워크 통신을 확인해주세요. 네트워크 설정으로 이동하겠습니까?"
+        case .noData:
+            "데이터가 없습니다"
+        case .invalidResponse:
+            "유효하지 않은 네트워크 응답입니다"
+        case .invalidData:
+            "유효하지 않은 데이터 응답입니다."
+        }
+    }
 }
 
 class TMDBSessionManager {

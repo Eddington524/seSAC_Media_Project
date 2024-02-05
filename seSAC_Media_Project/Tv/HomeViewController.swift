@@ -34,6 +34,7 @@ class HomeViewController: BaseViewController {
         //            }
         //            group.leave()
         //        }
+        
         group.enter()
         TMDBSessionManager.shared.fetchDrama(api: .trending) { drama, error in
             if error == nil {
@@ -42,7 +43,21 @@ class HomeViewController: BaseViewController {
                 self.tvList[0] = drama.results
                 
             }else{
+                //알람 필요
+//                if let apierror = error {
+//                    self.showErrorAlert(title: "네트워크 에러", message: apierror.errorMessage, buttonTitle: "확인") {
+//                        
+//                        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else { return }
+//                        if UIApplication.shared.canOpenURL(settingsURL) {
+//                            UIApplication.shared.open(settingsURL)
+//                        }
+//                    }
+//                    
+//                }else{
+//                    print(error ?? "예기치 못한 오류입니다")
+//                }
                 
+//
             }
             group.leave()
         }
@@ -176,3 +191,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+

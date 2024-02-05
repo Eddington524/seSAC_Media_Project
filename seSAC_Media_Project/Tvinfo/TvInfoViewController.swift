@@ -51,26 +51,6 @@ class TvInfoViewController: BaseViewController {
         
         let group = DispatchGroup()
         
-        
-//        APImanager.shared.fetchTvSeasonInfo(id: productId) { result in
-//
-//            self.seasonList = result.seasons
-//
-//            if let backdrop_path  = result.backdrop_path {
-//                
-//                let url = URL(string: "https://image.tmdb.org/t/p/w500\(backdrop_path)")
-//                
-//                self.backDropImage.kf.setImage(with:url, placeholder: UIImage(systemName: "movieclapper"))
-//                
-//            }
-//
-//            if let overview = result.overview {
-//                self.overview = overview
-//            }else{
-//                self.overview = "줄거리가 미제공된 콘텐츠 입니다"
-//            }
-//            group.leave()
-//        }
         group.enter()
         APImanager.shared.request(type: SeasonModel.self, api: .dramaDetail(id: productId)) { response in
             self.seasonList = response.seasons
