@@ -22,30 +22,42 @@ class HomeViewController: BaseViewController {
         
         let group = DispatchGroup()
         
-        TMDBSessionManager.shared.fetchTrendingMovie { drama, error in
+        group.enter()
+        TMDBSessionManager.shared.fetchTrendingDrama { drama, error in
             if error == nil {
+                
                 guard let drama = drama else { return }
                 self.tvList[0] = drama.results
-                self.homeTableView.reloadData()
+                
             }else{
                 
             }
-        }
-//        group.enter()
-//        APImanager.shared.request(type: DramaModel.self, api: .trending) { reponse in
-//            self.tvList[0] = reponse.results
-//            group.leave()
-//        }
-        
-        group.enter()
-        APImanager.shared.request(type: DramaModel.self, api: .topRated) { reponse in
-            self.tvList[1] = reponse.results
             group.leave()
         }
-    
+        
         group.enter()
-        APImanager.shared.request(type: DramaModel.self, api: .popular) { reponse in
-            self.tvList[2] = reponse.results
+        TMDBSessionManager.shared.fetchTopRateDrama { drama, error in
+            if error == nil {
+                
+                guard let drama = drama else { return }
+                self.tvList[1] = drama.results
+                
+            }else{
+                
+            }
+            group.leave()
+        }
+
+        group.enter()
+        TMDBSessionManager.shared.fetchPopularDrama { drama, error in
+            if error == nil {
+                
+                guard let drama = drama else { return }
+                self.tvList[2] = drama.results
+                
+            }else{
+                
+            }
             group.leave()
         }
         
