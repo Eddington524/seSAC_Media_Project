@@ -18,10 +18,10 @@ class TMDBSessionManager {
     static let shared = TMDBSessionManager()
     
     // 성공모델과, apiError model, error둘다 빼주기!
-    func fetchTrendingDrama(completionHandler: @escaping(DramaModel?, apiError?) -> Void) {
+    func fetchDrama(api: TMDBAPI, completionHandler: @escaping(DramaModel?, apiError?) -> Void) {
         
         //1번 urlRequest로 가져오기
-        var url = URLRequest(url: TMDBAPI.trending.endpoint)
+        var url = URLRequest(url: api.endpoint)
         
         //2번 addValue 인증키
         url.addValue(APIkey.TMDB, forHTTPHeaderField: "Authorization")
@@ -72,96 +72,5 @@ class TMDBSessionManager {
     
     }
 
-    func fetchTopRateDrama(completionHandler: @escaping(DramaModel?, apiError?) -> Void) {
-        
-        var url = URLRequest(url: TMDBAPI.topRated.endpoint)
-        
-        url.addValue(APIkey.TMDB, forHTTPHeaderField: "Authorization")
-        
-        url.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            DispatchQueue.main.async {
-            
-                guard error == nil else {
-                    completionHandler(nil, .failRequest)
-                    return
-                }
-                
-                guard let data = data else{
-                    completionHandler(nil, .noData)
-                    return
-                }
-//                print(String(data: data, encoding: .utf8))
-                
-                guard let response = response as? HTTPURLResponse else {
-                    completionHandler(nil, .invalidResponse)
-                    return
-                }
-                
-                guard response.statusCode == 200 else {
-                    completionHandler(nil, .failRequest)
-                    return
-                }
-                
-                do{
-                    let result = try JSONDecoder().decode(DramaModel.self, from: data)
-                    completionHandler(result,nil)
-                    
-                }catch{
-                    completionHandler(nil, .invalidData)
-                }
-            }
-            
-        }.resume()
-    
-    }
-    
-    func fetchPopularDrama(completionHandler: @escaping(DramaModel?, apiError?) -> Void) {
-        
-        var url = URLRequest(url: TMDBAPI.popular.endpoint)
-        
-        url.addValue(APIkey.TMDB, forHTTPHeaderField: "Authorization")
-        
-        url.httpMethod = "GET"
-
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            
-            DispatchQueue.main.async {
-            
-                guard error == nil else {
-                    completionHandler(nil, .failRequest)
-                    return
-                }
-                
-                guard let data = data else{
-                    completionHandler(nil, .noData)
-                    return
-                }
-//                print(String(data: data, encoding: .utf8))
-                
-                guard let response = response as? HTTPURLResponse else {
-                    completionHandler(nil, .invalidResponse)
-                    return
-                }
-                
-                guard response.statusCode == 200 else {
-                    completionHandler(nil, .failRequest)
-                    return
-                }
-                
-                do{
-                    let result = try JSONDecoder().decode(DramaModel.self, from: data)
-                    completionHandler(result,nil)
-                    
-                }catch{
-                    completionHandler(nil, .invalidData)
-                }
-            }
-            
-        }.resume()
-    
-    }
 }
 
