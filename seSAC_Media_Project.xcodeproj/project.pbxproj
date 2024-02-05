@@ -39,6 +39,7 @@
 		DC2825872B6DD48600073E3C /* BaseImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825862B6DD48600073E3C /* BaseImageView.swift */; };
 		DC28258B2B6E3C7B00073E3C /* DefaultTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */; };
 		DC28258F2B6F78BB00073E3C /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */; };
+		DC2825932B71081000073E3C /* TMDBSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825922B71081000073E3C /* TMDBSessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		DC2825862B6DD48600073E3C /* BaseImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseImageView.swift; sourceTree = "<group>"; };
 		DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
+		DC2825922B71081000073E3C /* TMDBSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBSessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 				DC28255B2B6CEF2400073E3C /* APIkey.swift */,
 				DC2825682B6CEF9700073E3C /* APImanager.swift */,
 				DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */,
+				DC2825922B71081000073E3C /* TMDBSessionManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -274,6 +277,7 @@
 			files = (
 				DC2825582B6CEEB200073E3C /* DramaModel.swift in Sources */,
 				DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */,
+				DC2825932B71081000073E3C /* TMDBSessionManager.swift in Sources */,
 				DC2825372B6BA27B00073E3C /* HomeViewController.swift in Sources */,
 				DC28256E2B6CF03400073E3C /* DarkgrayLabel.swift in Sources */,
 				DC28255C2B6CEF2400073E3C /* APIkey.swift in Sources */,

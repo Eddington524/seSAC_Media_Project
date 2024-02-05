@@ -6,3 +6,70 @@
 //
 
 import Foundation
+
+enum apiError: Error {
+    case failRequest
+    case noData
+    case invalidResponse
+    case invalidData
+}
+
+class TMDBSessionManager {
+    static let shared = TMDBSessionManager()
+    
+    // 성공모델과, apiError model, error둘다 빼주기!
+    func fetchTrendingMovie(completionHandler: @escaping(DramaModel?, apiError?) -> Void) {
+        
+        //1번 urlRequest로 가져오기
+        var url = URLRequest(url: TMDBAPI.trending.endpoint)
+        
+        //2번 addValue 인증키
+        url.addValue(APIkey.TMDB, forHTTPHeaderField: "Authorization")
+        
+        //3번httpMethod
+        url.httpMethod = "GET"
+        
+        //4번 URLSession 만들고 dataTask
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            
+            DispatchQueue.main.async {
+                //5번 각각 nil 처리
+                
+                guard error == nil else {
+                    completionHandler(nil, .failRequest)
+                    return
+                }
+                
+                guard let data = data else{
+                    completionHandler(nil, .noData)
+                    return
+                }
+                print(String(data: data, encoding: .utf8))
+                
+                guard let response = response as? HTTPURLResponse else {
+                    print("통신은 성공했지만, 응답값(ex.상태코드)이 오지 않음")
+                    completionHandler(nil, .invalidResponse)
+                    return
+                }
+                
+                guard response.statusCode == 200 else {
+                    print("통신은 성공했지만, 올바른 값이 오지 않은 상태")
+                    completionHandler(nil, .failRequest)
+                    return
+                }
+                
+                do{
+                    //6번 do let result = try JsonDecoder().decode()catch
+                    let result = try JSONDecoder().decode(DramaModel.self, from: data)
+                    completionHandler(result,nil)
+                    
+                }catch{
+                    completionHandler(nil, .invalidData)
+                }
+            }
+            
+        }.resume()
+    
+    }
+
+}

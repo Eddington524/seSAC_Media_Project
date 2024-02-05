@@ -22,17 +22,20 @@ class HomeViewController: BaseViewController {
         
         let group = DispatchGroup()
         
+        TMDBSessionManager.shared.fetchTrendingMovie { drama, error in
+            if error == nil {
+                guard let drama = drama else { return }
+                self.tvList[0] = drama.results
+                self.homeTableView.reloadData()
+            }else{
+                
+            }
+        }
 //        group.enter()
-//        APImanager.shared.fetchTVImages(url: "trending/tv/week") { tvs in
-//            self.tvList[0] = tvs
+//        APImanager.shared.request(type: DramaModel.self, api: .trending) { reponse in
+//            self.tvList[0] = reponse.results
 //            group.leave()
 //        }
-        
-        group.enter()
-        APImanager.shared.request(type: DramaModel.self, api: .trending) { reponse in
-            self.tvList[0] = reponse.results
-            group.leave()
-        }
         
         group.enter()
         APImanager.shared.request(type: DramaModel.self, api: .topRated) { reponse in
