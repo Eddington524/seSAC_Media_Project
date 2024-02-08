@@ -14,6 +14,7 @@ class BaseViewController: UIViewController {
         configureHierarchy()
         configureConstraints()
         configureView()
+        view.backgroundColor = .white
     }
     
 

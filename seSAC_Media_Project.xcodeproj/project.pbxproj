@@ -41,6 +41,14 @@
 		DC28258F2B6F78BB00073E3C /* TMDBAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */; };
 		DC2825932B71081000073E3C /* TMDBSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2825922B71081000073E3C /* TMDBSessionManager.swift */; };
 		DC2825962B712E1A00073E3C /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = DC2825952B712E1A00073E3C /* Toast */; };
+		DC779D3B2B738CF900A5FB01 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D3A2B738CF900A5FB01 /* TabController.swift */; };
+		DC779D3F2B73963500A5FB01 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D3E2B73963500A5FB01 /* SearchViewController.swift */; };
+		DC779D412B73965600A5FB01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D402B73965600A5FB01 /* ProfileViewController.swift */; };
+		DC779D432B73A28700A5FB01 /* ProfileInfoLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D422B73A28700A5FB01 /* ProfileInfoLabel.swift */; };
+		DC779D482B73AEC700A5FB01 /* UnderLineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D472B73AEC700A5FB01 /* UnderLineButton.swift */; };
+		DC779D4D2B748F3800A5FB01 /* InfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D4C2B748F3800A5FB01 /* InfoStackView.swift */; };
+		DC779D4F2B74976100A5FB01 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D4E2B74976100A5FB01 /* ProfileView.swift */; };
+		DC779D512B74A4BD00A5FB01 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D502B74A4BD00A5FB01 /* EditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +83,14 @@
 		DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTableViewCell.swift; sourceTree = "<group>"; };
 		DC28258E2B6F78BB00073E3C /* TMDBAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBAPI.swift; sourceTree = "<group>"; };
 		DC2825922B71081000073E3C /* TMDBSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBSessionManager.swift; sourceTree = "<group>"; };
+		DC779D3A2B738CF900A5FB01 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
+		DC779D3E2B73963500A5FB01 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		DC779D402B73965600A5FB01 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		DC779D422B73A28700A5FB01 /* ProfileInfoLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoLabel.swift; sourceTree = "<group>"; };
+		DC779D472B73AEC700A5FB01 /* UnderLineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderLineButton.swift; sourceTree = "<group>"; };
+		DC779D4C2B748F3800A5FB01 /* InfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoStackView.swift; sourceTree = "<group>"; };
+		DC779D4E2B74976100A5FB01 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		DC779D502B74A4BD00A5FB01 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +129,8 @@
 		DC2825312B6BA27B00073E3C /* seSAC_Media_Project */ = {
 			isa = PBXGroup;
 			children = (
+				DC779D3D2B7393A800A5FB01 /* Profile */,
+				DC779D3C2B73939C00A5FB01 /* Search */,
 				DC28257D2B6D071B00073E3C /* Tvinfo */,
 				DC28256A2B6CEFD200073E3C /* CustomView */,
 				DC2825562B6CEE8600073E3C /* Network */,
@@ -125,6 +143,7 @@
 				DC28253B2B6BA27C00073E3C /* Assets.xcassets */,
 				DC28253D2B6BA27C00073E3C /* LaunchScreen.storyboard */,
 				DC2825402B6BA27C00073E3C /* Info.plist */,
+				DC779D3A2B738CF900A5FB01 /* TabController.swift */,
 			);
 			path = seSAC_Media_Project;
 			sourceTree = "<group>";
@@ -179,6 +198,10 @@
 				DC28256F2B6CF05000073E3C /* PosterImageView.swift */,
 				DC2825712B6CF06800073E3C /* LineTitleLabel.swift */,
 				DC2825732B6CF0C500073E3C /* ProfileImageView.swift */,
+				DC779D422B73A28700A5FB01 /* ProfileInfoLabel.swift */,
+				DC779D472B73AEC700A5FB01 /* UnderLineButton.swift */,
+				DC779D4C2B748F3800A5FB01 /* InfoStackView.swift */,
+				DC779D4E2B74976100A5FB01 /* ProfileView.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -192,6 +215,23 @@
 				DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */,
 			);
 			path = Tvinfo;
+			sourceTree = "<group>";
+		};
+		DC779D3C2B73939C00A5FB01 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DC779D3E2B73963500A5FB01 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DC779D3D2B7393A800A5FB01 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				DC779D402B73965600A5FB01 /* ProfileViewController.swift */,
+				DC779D502B74A4BD00A5FB01 /* EditViewController.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,21 +322,29 @@
 				DC2825582B6CEEB200073E3C /* DramaModel.swift in Sources */,
 				DC2825812B6D4C6D00073E3C /* InfoTableViewCell.swift in Sources */,
 				DC2825932B71081000073E3C /* TMDBSessionManager.swift in Sources */,
+				DC779D3F2B73963500A5FB01 /* SearchViewController.swift in Sources */,
 				DC2825372B6BA27B00073E3C /* HomeViewController.swift in Sources */,
 				DC28256E2B6CF03400073E3C /* DarkgrayLabel.swift in Sources */,
+				DC779D4D2B748F3800A5FB01 /* InfoStackView.swift in Sources */,
 				DC28255C2B6CEF2400073E3C /* APIkey.swift in Sources */,
 				DC28257C2B6CFCED00073E3C /* BaseTableViewCell.swift in Sources */,
 				DC2825742B6CF0C500073E3C /* ProfileImageView.swift in Sources */,
+				DC779D432B73A28700A5FB01 /* ProfileInfoLabel.swift in Sources */,
 				DC2825502B6CED3300073E3C /* BaseViewController.swift in Sources */,
 				DC2825692B6CEF9700073E3C /* APImanager.swift in Sources */,
+				DC779D482B73AEC700A5FB01 /* UnderLineButton.swift in Sources */,
 				DC2825522B6CED4700073E3C /* BaseView.swift in Sources */,
 				DC2825702B6CF05000073E3C /* PosterImageView.swift in Sources */,
 				DC2825832B6D4DCC00073E3C /* InnerCollectionViewCell.swift in Sources */,
+				DC779D3B2B738CF900A5FB01 /* TabController.swift in Sources */,
 				DC2825782B6CF70A00073E3C /* BaseCollectionViewCell.swift in Sources */,
 				DC2825332B6BA27B00073E3C /* AppDelegate.swift in Sources */,
+				DC779D512B74A4BD00A5FB01 /* EditViewController.swift in Sources */,
 				DC2825352B6BA27B00073E3C /* SceneDelegate.swift in Sources */,
+				DC779D412B73965600A5FB01 /* ProfileViewController.swift in Sources */,
 				DC2825762B6CF5A200073E3C /* TvCollectionViewCell.swift in Sources */,
 				DC2825542B6CED7500073E3C /* ReusableViewProtocol.swift in Sources */,
+				DC779D4F2B74976100A5FB01 /* ProfileView.swift in Sources */,
 				DC28258F2B6F78BB00073E3C /* TMDBAPI.swift in Sources */,
 				DC28256C2B6CF01100073E3C /* BlackTitleLabel.swift in Sources */,
 				DC28258B2B6E3C7B00073E3C /* DefaultTableViewCell.swift in Sources */,
