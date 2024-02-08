@@ -10,12 +10,11 @@ import SnapKit
 
 class EditViewController: BaseViewController {
 
-    let textLabel: UILabel = {
-        let view = UILabel()
-        view.text = "이름"
-        return view
-    }()
+   
     
+    var titleText: String = ""
+    
+    let textLabel = UILabel()
     var nameSpace: ((String) -> Void)?
     let inputTextField = UITextField()
     let doneButton = UIButton()
@@ -27,6 +26,7 @@ class EditViewController: BaseViewController {
     }
     
     override func configureView(){
+        textLabel.text = titleText
         doneButton.setTitle("확인", for: .normal)
         doneButton.setTitleColor(.systemBlue, for: .normal)
         doneButton.addTarget(self, action: #selector(doneButtonClicked), for: .touchUpInside)

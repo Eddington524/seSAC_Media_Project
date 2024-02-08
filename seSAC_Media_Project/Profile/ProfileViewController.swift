@@ -58,7 +58,13 @@ class ProfileViewController: BaseViewController {
         return view
     }()
     
-    let userNameLabel = ProfileInfoLabel()
+    let userNameLabel: ProfileInfoLabel = {
+        let view = ProfileInfoLabel()
+        view.text = "닉네임"
+        return view
+    }()
+    
+//    let userNameLabel = ProfileInfoLabel()
     let genderLabel = ProfileInfoLabel()
     let introduceLabel = ProfileInfoLabel()
     let linkLabel = ProfileInfoLabel()
@@ -125,7 +131,9 @@ class ProfileViewController: BaseViewController {
     }
     
     override func configureView(){
+        
         nameButton.addTarget(self, action: #selector(nameButtonClicked), for: .touchUpInside)
+        userNameButton.addTarget(self, action: #selector(userNameButtonClicked), for: .touchUpInside)
     }
     
     override func configureConstraints() {
@@ -155,11 +163,11 @@ class ProfileViewController: BaseViewController {
             make.height.equalTo(32)
         }
         
-//        usernameStackView.snp.makeConstraints { make in
-//            make.top.equalTo(nameStackView.snp.bottom).offset(32)
-//            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
-//            make.height.equalTo(32)
-//        }
+        usernameStackView.snp.makeConstraints { make in
+            make.top.equalTo(nameStackView.snp.bottom).offset(32)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
+            make.height.equalTo(32)
+        }
         
         
     }
@@ -168,11 +176,22 @@ class ProfileViewController: BaseViewController {
 extension ProfileViewController {
     @objc func nameButtonClicked() {
         let vc = EditViewController()
-        
+        vc.titleText = "이름"
         vc.nameSpace = { value in
             self.nameButton.setTitle(value, for: .normal)
             
         }
         present(vc, animated: true)
     }
+    
+    @objc func userNameButtonClicked() {
+        let vc = EditViewController()
+        vc.titleText = "닉네임"
+        vc.nameSpace = { value in
+            self.userNameButton.setTitle(value, for: .normal)
+
+        }
+        present(vc, animated: true)
+    }
+    
 }
