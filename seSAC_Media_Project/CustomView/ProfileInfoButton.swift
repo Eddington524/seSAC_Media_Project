@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class UnderLineButton: UIButton{
+class ProfileInfoButton: UIButton{
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,7 +18,7 @@ class UnderLineButton: UIButton{
     }
     
     func configureView() {
-        self.backgroundColor = .darkGray
+        
     }
     
     func configureHierarchy() {

@@ -45,7 +45,7 @@ class InfoTableViewCell: BaseTableViewCell{
 //        innerCollectionView.backgroundColor = .yellow
     }
     
-    static func configureCollectionView()-> UICollectionViewLayout{
+    static func configureCollectionView() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout()
         //1) 아이템사이즈
         layout.itemSize  = CGSize(width: UIScreen.main.bounds.width, height: 200)

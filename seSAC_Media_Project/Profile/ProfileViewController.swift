@@ -9,22 +9,15 @@ import UIKit
 import SnapKit
 
 class ProfileViewController: BaseViewController {
-
-    lazy var topStackView: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.spacing = 4
-        view.distribution = .fillEqually
-        return view
-    }()
     
-    lazy var nameStackView = InfoStackView()
-    lazy var usernameStackView = InfoStackView()
-    lazy var genderStackView = InfoStackView()
-    lazy var introduceStackView = InfoStackView()
-    lazy var linkStackView = InfoStackView()
-    
-//    lazy var nStackView
+    let infoFieldList = ["이름", "사용자이름", "성별", "소개", "링크"]
+    var labelTag = 0
+    var nameList: [String] = ["","","","",""] {
+        didSet {
+            infoTableView.reloadData()
+        }
+    }
+    var profileUrlSpace: ((String) -> Void)?
     
     let profileImage: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -32,6 +25,7 @@ class ProfileViewController: BaseViewController {
         view.layer.cornerRadius = 50
         view.image = UIImage(systemName: "person")
         view.backgroundColor = .lightGray
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -43,62 +37,46 @@ class ProfileViewController: BaseViewController {
         return view
     }()
     
+    lazy var topStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.spacing = 4
+        view.distribution = .fillEqually
+        return view
+    }()
+    
+    
     let photoEditButton: UIButton = {
         let view = UIButton()
         view.setTitle("사진 또는 아바타 수정", for: .normal)
         view.setTitleColor(.systemBlue, for: .normal)
-//        view.layer.borderWidth = 1
-//        view.layer.borderColor = UIColor.darkGray.cgColor
+        
         return view
     }()
     
-    let nameLabel: ProfileInfoLabel = {
-        let view = ProfileInfoLabel()
-        view.text = "이름"
+    lazy var infoTableView: UITableView = {
+        let view = UITableView()
+        
+        
+        view.delegate = self
+        view.dataSource = self
+        view.rowHeight = 36
+        
+        view.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
+        
         return view
     }()
     
-    let userNameLabel: ProfileInfoLabel = {
-        let view = ProfileInfoLabel()
-        view.text = "닉네임"
-        return view
-    }()
-    
-//    let userNameLabel = ProfileInfoLabel()
-    let genderLabel = ProfileInfoLabel()
-    let introduceLabel = ProfileInfoLabel()
-    let linkLabel = ProfileInfoLabel()
-    
-    let nameButton = UnderLineButton()
-    let userNameButton = UnderLineButton()
-    let genderButton = UnderLineButton()
-    let introduceButton = UnderLineButton()
-    let linkButton = UnderLineButton()
-
     let privacyButton: UIButton = {
         let view = UIButton()
         view.setTitle("개인정보설정", for: .normal)
         view.setTitleColor(.black, for: .normal)
-        view.layer.borderWidth = 1
-        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
     
-    let editButton: UIButton = {
-        let view = UIButton()
-        let border = CALayer()
-        border.frame = CGRect(x: 0, y: view.frame.size.height-1, width: view.frame.width, height: 1)
-        border.backgroundColor = UIColor.darkGray.cgColor
-        view.layer.addSublayer(border)
-        return view
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
     
     override func configureHierarchy() {
-        let uiList = [topStackView, photoEditButton, nameStackView, usernameStackView, genderStackView, introduceStackView,linkStackView, privacyButton, photoEditButton]
+        let uiList = [topStackView, infoTableView, photoEditButton, infoTableView, privacyButton]
         
         uiList.forEach {
             view.addSubview($0)
@@ -107,41 +85,28 @@ class ProfileViewController: BaseViewController {
         [profileImage,avartarImage].forEach {
             topStackView.addArrangedSubview($0)
         }
-        
-        [nameLabel,nameButton].forEach {
-            nameStackView.addArrangedSubview($0)
-        }
-        
-        [userNameLabel,userNameButton].forEach {
-            usernameStackView.addArrangedSubview($0)
-        }
-        
-        [genderLabel,genderButton].forEach {
-            genderStackView.addArrangedSubview($0)
-        }
-        
-        [introduceLabel,introduceButton].forEach {
-            introduceStackView.addArrangedSubview($0)
-        }
-        
-        [linkLabel,linkButton].forEach {
-            linkStackView.addArrangedSubview($0)
-        }
-
     }
     
     override func configureView(){
         
-        nameButton.addTarget(self, action: #selector(nameButtonClicked), for: .touchUpInside)
-        userNameButton.addTarget(self, action: #selector(userNameButtonClicked), for: .touchUpInside)
+        photoEditButton.addTarget(self, action: #selector(movePhotoEditView), for: .touchUpInside)
+    
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.movePhotoEditView))
+        profileImage.addGestureRecognizer(tapGesture)
     }
     
     override func configureConstraints() {
-    
+        
         topStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.centerX.equalTo(view.center)
             make.height.equalTo(100)
+        }
+        
+        infoTableView.snp.makeConstraints { make in
+            make.top.equalTo(photoEditButton.snp.bottom).offset(16)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(200)
         }
         
         profileImage.snp.makeConstraints { make in
@@ -157,41 +122,58 @@ class ProfileViewController: BaseViewController {
             make.centerX.equalTo(topStackView)
         }
         
-        nameStackView.snp.makeConstraints { make in
-            make.top.equalTo(photoEditButton.snp.bottom).offset(32)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.height.equalTo(32)
-        }
-        
-        usernameStackView.snp.makeConstraints { make in
-            make.top.equalTo(nameStackView.snp.bottom).offset(32)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
-            make.height.equalTo(32)
-        }
-        
-        
     }
 }
 
 extension ProfileViewController {
     @objc func nameButtonClicked() {
         let vc = EditViewController()
-        vc.titleText = "이름"
-        vc.nameSpace = { value in
-            self.nameButton.setTitle(value, for: .normal)
+//        vc.titleText = "이름"
+        vc.textSpace = { value in
+            //            self.nameButton.setTitle(value, for: .normal)
             
         }
         present(vc, animated: true)
     }
     
-    @objc func userNameButtonClicked() {
-        let vc = EditViewController()
-        vc.titleText = "닉네임"
-        vc.nameSpace = { value in
-            self.userNameButton.setTitle(value, for: .normal)
-
+    @objc func movePhotoEditView() {
+        let vc = SearchViewController()
+        vc.profileUrlSpace = {
+            url in
+            self.profileImage.kf.setImage(with: URL(string: url))
         }
         present(vc, animated: true)
     }
+}
+
+extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        infoFieldList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier, for: indexPath) as? ProfileTableViewCell else{
+           
+            return UITableViewCell()
+        }
+        
+        cell.titleLabel.text = infoFieldList[indexPath.row]
+        cell.infoLable.tag = indexPath.row
+        cell.infoLable.text = nameList[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = EditViewController()
+        vc.titleText = infoFieldList[indexPath.row]
+        self.labelTag = indexPath.row
+        
+        vc.textSpace = { value in
+            self.nameList[self.labelTag] = value
+        }
+        
+        present(vc, animated: true)
+    }
 }

@@ -52,7 +52,7 @@ class TvInfoViewController: BaseViewController {
         let group = DispatchGroup()
         
         group.enter()
-        APImanager.shared.request(type: SeasonModel.self, api: .dramaDetail(id: productId)) { response in
+        TmdbApiManager.shared.request(type: SeasonModel.self, api: .dramaDetail(id: productId)) { response in
             self.seasonList = response.seasons
 
             if let backdrop_path  = response.backdrop_path {
@@ -72,7 +72,7 @@ class TvInfoViewController: BaseViewController {
         }
         
         group.enter()
-        APImanager.shared.request(type: ActorModel.self, api: .casting(id: productId)) { response in
+        TmdbApiManager.shared.request(type: ActorModel.self, api: .casting(id: productId)) { response in
             self.castList = response.cast
             group.leave()
         }
@@ -80,7 +80,7 @@ class TvInfoViewController: BaseViewController {
         infoTitle.text = productName
         
         group.enter()
-        APImanager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { reponse in
+        TmdbApiManager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { reponse in
             self.recommendList = reponse.results
 
             group.leave()

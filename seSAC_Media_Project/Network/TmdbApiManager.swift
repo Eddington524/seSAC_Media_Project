@@ -7,9 +7,9 @@
 
 import Alamofire
 
-class APImanager {
+class TmdbApiManager {
     
-    static let shared = APImanager()
+    static let shared = TmdbApiManager()
     let header: HTTPHeaders = ["Authorization": APIkey.TMDB]
     let baseUrl: String = "https://api.themoviedb.org/3/"
     let language: String = "ko-KR"
@@ -25,7 +25,4 @@ class APImanager {
             }
         }
     }
-    
- 
-    
 }

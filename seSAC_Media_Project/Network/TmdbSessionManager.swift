@@ -27,8 +27,8 @@ enum apiError: Error {
     }
 }
 
-class TMDBSessionManager {
-    static let shared = TMDBSessionManager()
+class TmdbSessionManager {
+    static let shared = TmdbSessionManager()
     
     // 성공모델과, apiError model, error둘다 빼주기!
     func fetchDrama(api: TMDBAPI, completionHandler: @escaping(DramaModel?, apiError?) -> Void) {

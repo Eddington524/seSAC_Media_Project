@@ -36,7 +36,7 @@ class HomeViewController: BaseViewController {
         //        }
         
         group.enter()
-        TMDBSessionManager.shared.fetchDrama(api: .trending) { drama, error in
+        TmdbSessionManager.shared.fetchDrama(api: .trending) { drama, error in
             if error == nil {
                 
                 guard let drama = drama else { return }
@@ -63,7 +63,7 @@ class HomeViewController: BaseViewController {
         }
         
         group.enter()
-        TMDBSessionManager.shared.fetchDrama(api: .topRated) { drama, error in
+        TmdbSessionManager.shared.fetchDrama(api: .topRated) { drama, error in
             if error == nil {
                 
                 guard let drama = drama else { return }
@@ -76,7 +76,7 @@ class HomeViewController: BaseViewController {
         }
         
         group.enter()
-        TMDBSessionManager.shared.fetchDrama(api: .popular) { drama, error in
+        TmdbSessionManager.shared.fetchDrama(api: .popular) { drama, error in
             if error == nil {
                 
                 guard let drama = drama else { return }
