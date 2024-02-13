@@ -38,6 +38,7 @@ struct SeasonModel: Decodable {
 }
 
 struct Season: Decodable {
+    let id: Int
     let air_date: String?
     let episode_count: Int
     let name: String
@@ -47,6 +48,7 @@ struct Season: Decodable {
     let vote_average: Double
     
     enum CodingKeys: CodingKey {
+        case id
         case air_date
         case episode_count
         case name
@@ -58,6 +60,7 @@ struct Season: Decodable {
     
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
         self.air_date = try container.decodeIfPresent(String.self, forKey: .air_date) ?? ""
         self.episode_count = try container.decode(Int.self, forKey: .episode_count)
         self.name = try container.decode(String.self, forKey: .name)
@@ -81,4 +84,13 @@ struct Actor: Decodable {
 
 struct RoleCharacter: Decodable {
     let character: String
+}
+
+struct Series_Result: Decodable {
+    let id:Int
+        let results: [Result]
+}
+
+struct Result:Decodable {
+    let key: String?
 }

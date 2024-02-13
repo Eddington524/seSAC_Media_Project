@@ -45,6 +45,7 @@
 		DC551F892B761FE500AF67A8 /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC551F882B761FE500AF67A8 /* SearchCollectionViewCell.swift */; };
 		DC551F8C2B7A007F00AF67A8 /* ProfileImgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC551F8B2B7A007F00AF67A8 /* ProfileImgModel.swift */; };
 		DC551F8E2B7A056E00AF67A8 /* NaverApiManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC551F8D2B7A056E00AF67A8 /* NaverApiManger.swift */; };
+		DC551F932B7B68D800AF67A8 /* WebVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC551F922B7B68D800AF67A8 /* WebVideoViewController.swift */; };
 		DC779D3B2B738CF900A5FB01 /* TabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D3A2B738CF900A5FB01 /* TabController.swift */; };
 		DC779D3F2B73963500A5FB01 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D3E2B73963500A5FB01 /* SearchViewController.swift */; };
 		DC779D412B73965600A5FB01 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC779D402B73965600A5FB01 /* ProfileViewController.swift */; };
@@ -92,6 +93,7 @@
 		DC551F882B761FE500AF67A8 /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC551F8B2B7A007F00AF67A8 /* ProfileImgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImgModel.swift; sourceTree = "<group>"; };
 		DC551F8D2B7A056E00AF67A8 /* NaverApiManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverApiManger.swift; sourceTree = "<group>"; };
+		DC551F922B7B68D800AF67A8 /* WebVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVideoViewController.swift; sourceTree = "<group>"; };
 		DC779D3A2B738CF900A5FB01 /* TabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabController.swift; sourceTree = "<group>"; };
 		DC779D3E2B73963500A5FB01 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		DC779D402B73965600A5FB01 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		DC2825312B6BA27B00073E3C /* seSAC_Media_Project */ = {
 			isa = PBXGroup;
 			children = (
+				DC551F912B7B66B200AF67A8 /* Video */,
 				DC779D3D2B7393A800A5FB01 /* Profile */,
 				DC779D3C2B73939C00A5FB01 /* Search */,
 				DC28257D2B6D071B00073E3C /* Tvinfo */,
@@ -227,6 +230,14 @@
 				DC28258A2B6E3C7B00073E3C /* DefaultTableViewCell.swift */,
 			);
 			path = Tvinfo;
+			sourceTree = "<group>";
+		};
+		DC551F912B7B66B200AF67A8 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DC551F922B7B68D800AF67A8 /* WebVideoViewController.swift */,
+			);
+			path = Video;
 			sourceTree = "<group>";
 		};
 		DC779D3C2B73939C00A5FB01 /* Search */ = {
@@ -352,6 +363,7 @@
 				DC2825692B6CEF9700073E3C /* TmdbApiManager.swift in Sources */,
 				DC779D482B73AEC700A5FB01 /* ProfileInfoButton.swift in Sources */,
 				DC2825522B6CED4700073E3C /* BaseView.swift in Sources */,
+				DC551F932B7B68D800AF67A8 /* WebVideoViewController.swift in Sources */,
 				DC2825702B6CF05000073E3C /* PosterImageView.swift in Sources */,
 				DC2825832B6D4DCC00073E3C /* InnerCollectionViewCell.swift in Sources */,
 				DC779D3B2B738CF900A5FB01 /* TabController.swift in Sources */,

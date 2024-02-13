@@ -10,10 +10,11 @@ import SnapKit
 import Kingfisher
 
 class TvInfoViewController: BaseViewController {
-
+    
     var seasonList: [Season] = []
     var castList: [Actor] = []
     var recommendList: [Drama] = []
+    var selectedSeriesKey: String = ""
     
     let sectionTitleList = ["기본정보", "시즌", "출연", "비슷한작품 추천"]
     
@@ -54,7 +55,7 @@ class TvInfoViewController: BaseViewController {
         group.enter()
         TmdbApiManager.shared.request(type: SeasonModel.self, api: .dramaDetail(id: productId)) { response in
             self.seasonList = response.seasons
-
+            
             if let backdrop_path  = response.backdrop_path {
                 
                 let url = URL(string: "https://image.tmdb.org/t/p/w500\(backdrop_path)")
@@ -62,7 +63,7 @@ class TvInfoViewController: BaseViewController {
                 self.backDropImage.kf.setImage(with:url, placeholder: UIImage(systemName: "movieclapper"))
                 
             }
-
+            
             if let overview = response.overview {
                 self.overview = overview
             }else{
@@ -82,7 +83,7 @@ class TvInfoViewController: BaseViewController {
         group.enter()
         TmdbApiManager.shared.request(type: DramaModel.self, api: .recommend(id: productId)) { reponse in
             self.recommendList = reponse.results
-
+            
             group.leave()
         }
         
@@ -125,7 +126,7 @@ class TvInfoViewController: BaseViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-
+        
         infoTableView.snp.makeConstraints { make in
             make.top.equalTo(backDropImage.snp.bottom)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(8)
@@ -175,7 +176,7 @@ extension TvInfoViewController:UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             height = 150
         }
-      
+        
         return CGFloat(height)
     }
     
@@ -205,7 +206,7 @@ extension TvInfoViewController: UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
         let cell =
         collectionView.dequeueReusableCell(withReuseIdentifier: InnerCollectionViewCell.identifier, for: indexPath) as! InnerCollectionViewCell
         
@@ -238,10 +239,10 @@ extension TvInfoViewController: UICollectionViewDelegate,UICollectionViewDataSou
             
             cell.titleLabel.text = data.name
             cell.episodeCount.text = "\(data.roles[0].character)"
-
+            
             return cell
         }
-
+        
         else if collectionView.tag == 3{
             
             let item = recommendList[indexPath.row]
@@ -255,11 +256,31 @@ extension TvInfoViewController: UICollectionViewDelegate,UICollectionViewDataSou
             
             cell.titleLabel.text = recommendList[indexPath.row].name
             return cell
-
+            
         }else{
             return cell
         }
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        TmdbApiManager.shared.request(type: Series_Result.self, api: .series_key(id: productId)) { response in
+            
+            guard let urlKey = response.results.first?.key else{
+                print("youtube url key 오류")
+                return
+            }
+            self.selectedSeriesKey = urlKey
+            
+            DispatchQueue.main.async {
+                let vc = WebVideoViewController()
+                vc.urlId = urlKey
+                self.present(vc, animated: true)
+            }
+            
+        }
+        
+
+    }
 }

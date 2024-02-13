@@ -20,6 +20,7 @@ enum TMDBAPI {
     case casting(id: Int)
     case recommend(id: Int)
     case search(query: String)
+    case series_key(id: Int)
     
     var endpoint: URL {
         switch self {
@@ -38,6 +39,8 @@ enum TMDBAPI {
             
         case .search(query: let query):
             return URL(string: baseURL + "search/tv")!
+        case .series_key(let id):
+            return URL(string: baseURL + "tv/\(id)/videos")!
         }
     }
     
@@ -65,6 +68,8 @@ enum TMDBAPI {
             ["":""]
         case .search(query: let query):
             ["language": "ko-KR", "query": query]
+        case .series_key(id: let id):
+            ["":""]
         }
     }
 }

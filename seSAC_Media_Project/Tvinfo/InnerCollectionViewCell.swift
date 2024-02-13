@@ -52,8 +52,7 @@ class InnerCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-//        titleLabel.backgroundColor = .blue
-        posterImageView.backgroundColor = .systemMint
+
 
     }
     
